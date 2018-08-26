@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Markov Chain Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Form</h1>
+    <form action="#" th:action="@{/}" th:object="${transformRequest}" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td>File:</td>
+                <td><input type="file" th:field="*{input}" /></td>
+                <td th:if="${#fields.hasErrors('input')}" th:errors="*{input}">File Error</td>
+            </tr>
+            <tr>
+                <td>Suffix Count:</td>
+                <td><input type="text" th:field="*{suffixCount}" /></td>
+                <td th:if="${#fields.hasErrors('suffixCount')}" th:errors="*{suffixCount}">Suffix Error</td>
+            </tr>
+            <tr>
+                <td>Prefix Length:</td>
+                <td><input type="text" th:field="*{prefixLength}" /></td>
+                <td th:if="${#fields.hasErrors('prefixLength')}" th:errors="*{prefixLength}">Prefix Error</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Go" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
